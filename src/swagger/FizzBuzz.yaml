@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  description: Interview Prepration.
+  version: '1.0.1'
+  title: Interview preparation
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: ambujsinha@ymail.com
+  license:
+    name: License 2.0
+    url: 'http://www.t-mobile.com/licenses/LICENSE-2.0.html'
+host: 'localhost:8080'
+basePath: /interviewtest
+schemes:
+  - https
+tags:
+  - name: fizzBuzz
+    description: this tag is created for BEST Buy Interview
+paths:
+  /demo/v1/calculatefizzbuzz:
+    post:
+      tags:
+        - fizzBuzz
+      x-api-pattern: "calculateFizzBuzz"
+      summary: This Api will calculate the fizz buzz string based on input provided
+      description: This Api will calculate the fizz buzz string based on input provided
+      operationId: calculateFizzBuzz
+      security: [ ]
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: fizzBuzzRequest
+          description: The list of the inputs in an array
+          required: true
+          schema:
+            $ref: '#/definitions/fizzBuzzRequest'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/fizzBuzzResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: You are not authorized to view the resource
+        '403':
+          description: Accessing the resource you were trying to reach is forbidden
+        '404':
+          description: The resource you were trying to reach is not found
+        '405':
+          description: Method Not Allowed
+        '409':
+          description: Conflict
+        '415':
+          description: Unsupported Media Type
+        '500':
+          description: System Error
+        '503':
+          description: Service unavailable
+definitions:
+  fizzBuzzRequest:
+    type: object
+    properties:
+      input:
+        type: array
+        description: Items.
+        items:
+          $ref: '#/definitions/Items'
+  Items:
+    type: string
+  fizzBuzzResponse:
+    type: string
+
+
+
+
